@@ -3,11 +3,14 @@ import CallToAction from '~/components/widgets/CallToAction.astro';
 import Content from '~/components/widgets/Content.astro';
 import Features2 from '~/components/widgets/Features2.astro';
 import Hero from '~/components/widgets/Hero.astro';
+import Projects from '~/components/widgets/Projects.astro';
 import Testimonials from '~/components/widgets/Testimonials.astro';
 import Layout from '~/layouts/PageLayout.astro';
 
 const metadata = {
   title: 'Services',
+  description:
+    'Services page demo built with AstroWind: showcase what you offer with feature grids, content blocks and testimonials.',
 };
 ---
 
@@ -167,6 +170,48 @@ const metadata = {
     </Fragment>
   </Content>
 
+  <!-- Projects Widget *************** -->
+
+  <Projects
+    id="work"
+    tagline="Case studies"
+    title="Recent work"
+    subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sagittis, quam nec venenatis lobortis, mi risus tempus nulla."
+    items={[
+      {
+        title: 'SaaS marketing site',
+        description: 'Nam malesuada urna in enim imperdiet tincidunt. Phasellus non tincidunt nisi, at elementum mi.',
+        image: {
+          src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80',
+          alt: 'People working on laptops',
+        },
+        tags: ['SaaS', 'Landing pages'],
+        result: '+38 % demo requests',
+      },
+      {
+        title: 'Corporate site relaunch',
+        description:
+          'Cras semper nulla leo, eget laoreet erat cursus sed. Praesent faucibus massa in purus iaculis dictum.',
+        image: {
+          src: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80',
+          alt: 'Modern office building',
+        },
+        tags: ['Corporate', 'Blog'],
+        result: 'Lighthouse 100 across the board',
+      },
+      {
+        title: 'Founder portfolio',
+        description: 'Phasellus lacinia cursus velit, eu malesuada magna pretium eu. Etiam aliquet tellus purus.',
+        image: {
+          src: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80',
+          alt: 'A laptop with analytics on a desk',
+        },
+        tags: ['Personal', 'Portfolio'],
+        result: 'Live in one afternoon',
+      },
+    ]}
+  />
+
   <!-- Testimonials Widget *********** -->
 
   <Testimonials
@@ -174,6 +219,7 @@ const metadata = {
     testimonials={[
       {
         testimonial: `The designs are not only visually appealing but also highly professional. The templates have saved me a significant amount of time while helping me make a lasting impression on my clients.`,
+        rating: 5,
         name: 'Emily Kennedy',
         job: 'Front-end developer',
         image: {
@@ -183,6 +229,7 @@ const metadata = {
       },
       {
         testimonial: `It beautifully showcases my work, with its clean and elegant design that lets my photographs shine. Customization was a breeze, even for a non-tech person like me. The result is a professional and immersive portfolio that's garnered numerous compliments.`,
+        rating: 5,
         name: 'Sarah Hansen',
         job: 'Photographer',
         image: {
@@ -192,6 +239,7 @@ const metadata = {
       },
       {
         testimonial: `I discovered these templates and I'm impressed by their variety and quality. They've helped me establish a consistent brand image across my marketing and social platforms, elevating my business's overall appearance.`,
+        rating: 5,
         name: 'Mark Wilkinson',
         job: 'Small business owner',
         image: {
@@ -203,7 +251,7 @@ const metadata = {
     callToAction={{
       target: '_blank',
       text: 'More testimonials...',
-      href: 'https://github.com/onwidget/astrowind',
+      href: 'https://github.com/arthelokyo/astrowind',
       icon: 'tabler:chevron-right',
     }}
   />

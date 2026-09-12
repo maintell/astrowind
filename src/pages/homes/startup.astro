@@ -10,11 +10,14 @@ import Stats from '~/components/widgets/Stats.astro';
 import Features3 from '~/components/widgets/Features3.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
 import Brands from '~/components/widgets/Brands.astro';
+import Video from '~/components/widgets/Video.astro';
 
-import { YouTube } from 'astro-embed';
+import { YouTube } from '@astro-community/astro-embed-youtube';
 
 const metadata = {
   title: 'Startup Landing Page',
+  description:
+    'Startup homepage demo built with AstroWind: video hero, features, stats, partner logos and FAQs to present a new company.',
 };
 ---
 
@@ -28,7 +31,7 @@ const metadata = {
         variant: 'primary',
         target: '_blank',
         text: 'Get templates',
-        href: 'https://github.com/onwidget/astrowind',
+        href: 'https://github.com/arthelokyo/astrowind',
         icon: 'tabler:download',
       },
       { text: 'Learn more', href: '#features' },
@@ -36,7 +39,7 @@ const metadata = {
   >
     <Fragment slot="title">
       Improve <span class="hidden sm:inline">the online presence of</span> your <span
-        class="text-accent dark:text-white highlight">Startup</span
+        class="text-accent dark:text-white">Startup</span
       > with Astrowind templates
     </Fragment>
 
@@ -60,7 +63,7 @@ const metadata = {
 
   <Features2
     title="About us"
-    subtitle="We believe in the magic of turning dreams into stunning realities. Founded by passionate developers with a shared vision, we set out to simplify the website creation process. Our templates bring together the innovation of Astro 4.0 and the versatility of Tailwind CSS, enabling you to express your unique brand identity like never before."
+    subtitle="We believe in the magic of turning dreams into stunning realities. Founded by passionate developers with a shared vision, we set out to simplify the website creation process. Our templates bring together the innovation of Astro v7 and the versatility of Tailwind CSS v4, enabling you to express your unique brand identity like never before."
   >
     <Fragment slot="bg">
       <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
@@ -83,6 +86,9 @@ const metadata = {
   <!-- Brands Widget ****************** -->
 
   <Brands
+    variant="marquee"
+    grayscale
+    boxed={false}
     title="Partnerships & Collaborations"
     subtitle="At Astrowind, we believe in the power of collaboration to drive innovation and create exceptional experiences."
     icons={[]}
@@ -125,6 +131,22 @@ const metadata = {
         alt: 'Yahoo',
       },
     ]}
+  />
+
+  <!-- Video Widget ***************** -->
+
+  <Video
+    id="video"
+    tagline="In action"
+    title="See the template in two minutes"
+    subtitle="Only the poster loads with the page; the player is embedded when you press play."
+    youtube="dsTXcSeAZq8"
+    videoTitle="AstroWind template overview"
+    poster={{
+      src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80',
+      alt: 'People working on laptops around a table',
+    }}
+    caption="A sample video; replace the YouTube id with your own."
   />
 
   <!-- Features2 Widget ************** -->
@@ -297,12 +319,13 @@ const metadata = {
   <!-- CallToAction Widget *********** -->
 
   <CallToAction
+    layout="banner"
     actions={[
       {
         variant: 'primary',
         target: '_blank',
         text: 'Get templates',
-        href: 'https://github.com/onwidget/astrowind',
+        href: 'https://github.com/arthelokyo/astrowind',
         icon: 'tabler:download',
       },
     ]}

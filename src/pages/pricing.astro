@@ -2,6 +2,7 @@
 import Layout from '~/layouts/PageLayout.astro';
 import HeroText from '~/components/widgets/HeroText.astro';
 import Prices from '~/components/widgets/Pricing.astro';
+import Comparison from '~/components/widgets/Comparison.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
 import Steps from '~/components/widgets/Steps.astro';
 import Features3 from '~/components/widgets/Features3.astro';
@@ -9,6 +10,8 @@ import CallToAction from '~/components/widgets/CallToAction.astro';
 
 const metadata = {
   title: 'Pricing',
+  description:
+    'Pricing page demo built with AstroWind: tiered plans, feature comparison, steps and FAQs styled with Tailwind CSS.',
 };
 ---
 
@@ -30,8 +33,8 @@ const metadata = {
       {
         title: 'basic',
         subtitle: 'Optimal choice for personal use',
-        price: 29,
-        period: 'per month',
+        price: { monthly: 29, yearly: 290 },
+        period: { monthly: 'per month', yearly: 'per year' },
         items: [
           {
             description: 'Etiam in libero, et volutpat',
@@ -47,7 +50,6 @@ const metadata = {
           },
         ],
         callToAction: {
-          target: '_blank',
           text: 'Get started',
           href: '#',
         },
@@ -55,8 +57,10 @@ const metadata = {
       {
         title: 'standard',
         subtitle: 'Optimal choice for small teams',
-        price: 69,
-        period: 'Per Month',
+        price: { monthly: 69, yearly: 690 },
+        period: { monthly: 'per month', yearly: 'per year' },
+        note: 'Two months free on the yearly plan',
+        highlight: true,
         items: [
           {
             description: 'Proin vel laoreet',
@@ -75,7 +79,6 @@ const metadata = {
           },
         ],
         callToAction: {
-          target: '_blank',
           text: 'Get started',
           href: '#',
         },
@@ -85,8 +88,8 @@ const metadata = {
       {
         title: 'premium',
         subtitle: 'Optimal choice for companies',
-        price: 199,
-        period: 'Per Month',
+        price: { monthly: 199, yearly: 1990 },
+        period: { monthly: 'per month', yearly: 'per year' },
         items: [
           {
             description: 'Curabitur suscipit risus',
@@ -102,11 +105,47 @@ const metadata = {
           },
         ],
         callToAction: {
-          target: '_blank',
           text: 'Get started',
           href: '#',
         },
       },
+    ]}
+  />
+
+  <!-- Comparison Widget ************ -->
+
+  <Comparison
+    id="compare"
+    tagline="Compare plans"
+    title="Everything in each plan"
+    subtitle="The full feature matrix. Highlighted column: the plan most teams pick."
+    firstColumnLabel="Features"
+    columns={[
+      { title: 'Basic', subtitle: '$29 / month', callToAction: { text: 'Get started', href: '/contact' } },
+      {
+        title: 'Standard',
+        subtitle: '$69 / month',
+        highlight: true,
+        callToAction: { text: 'Get started', href: '/contact' },
+      },
+      { title: 'Premium', subtitle: '$199 / month', callToAction: { text: 'Talk to us', href: '/contact' } },
+    ]}
+    rows={[
+      { group: 'Core', label: 'Pages', values: ['Unlimited', 'Unlimited', 'Unlimited'] },
+      { group: 'Core', label: 'Projects', values: ['1', '5', 'Unlimited'] },
+      { group: 'Core', label: 'Team members', values: ['1', '5', '25'] },
+      { group: 'Core', label: 'Custom domain', values: [true, true, true] },
+      { group: 'Support', label: 'Email support', values: [true, true, true] },
+      {
+        group: 'Support',
+        label: 'Priority support',
+        description: 'Response within one business day',
+        values: [false, true, true],
+      },
+      { group: 'Support', label: 'Dedicated manager', values: [false, false, true] },
+      { group: 'Extras', label: 'Analytics dashboard', values: [false, true, true] },
+      { group: 'Extras', label: 'Single sign-on (SSO)', values: [false, false, true] },
+      { group: 'Extras', label: 'Audit log', values: [false, false, '90 days'] },
     ]}
   />
 
@@ -159,32 +198,24 @@ const metadata = {
     isReversed={true}
     items={[
       {
-        title: 'Explore plans',
+        title: 'Pick a plan',
+        description: 'Compare the three plans and choose the one that fits your project.',
         icon: 'tabler:number-1',
       },
       {
-        title: 'Select a plan',
+        title: 'Create your account',
+        description: 'Sign up or log in. It takes a minute and you only do it once.',
         icon: 'tabler:number-2',
       },
       {
-        title: 'Sign Up / Log In',
+        title: 'Pay securely',
+        description: 'Enter your payment details, review the order and confirm.',
         icon: 'tabler:number-3',
       },
       {
-        title: 'Review order',
+        title: 'Download and build',
+        description: 'Get the template and start editing right away.',
         icon: 'tabler:number-4',
-      },
-      {
-        title: 'Enter payment details',
-        icon: 'tabler:number-5',
-      },
-      {
-        title: 'Confirmation',
-        icon: 'tabler:number-6',
-      },
-      {
-        title: 'Download and start using the template(s)',
-        icon: 'tabler:number-7',
       },
     ]}
     image={{

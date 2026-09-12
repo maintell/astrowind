@@ -4,6 +4,7 @@ import Layout from '~/layouts/PageLayout.astro';
 import Header from '~/components/widgets/Header.astro';
 
 import Hero2 from '~/components/widgets/Hero2.astro';
+import SocialProof from '~/components/widgets/SocialProof.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 import Features3 from '~/components/widgets/Features3.astro';
 import Content from '~/components/widgets/Content.astro';
@@ -15,13 +16,15 @@ import Button from '~/components/ui/Button.astro';
 import Image from '~/components/common/Image.astro';
 
 const appStoreImg = '~/assets/images/app-store.png';
-const appStoreDownloadLink = 'https://github.com/onwidget/astrowind';
+const appStoreDownloadLink = 'https://github.com/arthelokyo/astrowind';
 
 const googlePlayImg = '~/assets/images/google-play.png';
-const googlePlayDownloadLink = 'https://github.com/onwidget/astrowind';
+const googlePlayDownloadLink = 'https://github.com/arthelokyo/astrowind';
 
 const metadata = {
   title: 'Mobile App Homepage',
+  description:
+    'Mobile app homepage demo built with AstroWind: app hero, feature highlights, testimonials, FAQs and store download buttons.',
 };
 ---
 
@@ -31,9 +34,8 @@ const metadata = {
     <Header
       position="left"
       links={[
-        { text: 'Services', href: '#' },
-        { text: 'Features', href: '#' },
-        { text: 'About', href: '#' },
+        { text: 'Features', href: '#features' },
+        { text: 'Download', href: '#download' },
       ]}
       actions={[
         {
@@ -51,12 +53,13 @@ const metadata = {
   <Hero2
     tagline="Mobile App Web Demo"
     image={{
-      src: 'https://images.unsplash.com/photo-1535303311164-664fc9ec6532?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80',
-      alt: 'AstroWind Hero Image',
+      src: 'https://cdn.pixabay.com/photo/2017/02/03/01/56/smartphone-2034330_1280.png',
+      alt: 'Illustration of a smartphone showing app icons',
+      aspect: 'auto',
     }}
   >
     <Fragment slot="title">
-      <span class="text-accent dark:text-white highlight">AstroWind App</span>: <br /> professional websites <span
+      <span class="text-accent dark:text-white">AstroWind App</span>: <br /> professional websites <span
         class="hidden xl:inline">made easy</span
       >
     </Fragment>
@@ -70,14 +73,32 @@ const metadata = {
 
     <div slot="actions" class="flex max-w-sm gap-4">
       <Button variant="link" href={appStoreDownloadLink}>
-        <Image src={appStoreImg} alt="App Store Image" width={200} />
+        <Image src={appStoreImg} alt="App Store Image" width={200} format="webp" />
       </Button>
 
       <Button variant="link" href={googlePlayDownloadLink}>
-        <Image src={googlePlayImg} alt="Google Play Image" width={200} />
+        <Image src={googlePlayImg} alt="Google Play Image" width={200} format="webp" />
       </Button>
     </div>
   </Hero2>
+
+  <!-- SocialProof Widget *********** -->
+
+  <SocialProof
+    id="ratings"
+    items={[
+      { value: '4.8', label: 'on the App Store', icon: 'tabler:brand-apple', rating: 4.8, href: appStoreDownloadLink },
+      {
+        value: '4.7',
+        label: 'on Google Play',
+        icon: 'tabler:brand-google-play',
+        rating: 4.7,
+        href: googlePlayDownloadLink,
+      },
+      { value: '1M+', label: 'downloads', icon: 'tabler:download' },
+      { value: '#1', label: 'Product of the Day', icon: 'tabler:brand-producthunt' },
+    ]}
+  />
 
   <!-- Features3 Widget ************** -->
 
@@ -240,7 +261,7 @@ const metadata = {
     callToAction={{
       target: '_blank',
       text: 'Read more testimonials',
-      href: 'https://github.com/onwidget/astrowind',
+      href: 'https://github.com/arthelokyo/astrowind',
       icon: 'tabler:chevron-right',
     }}
   />
@@ -286,11 +307,11 @@ const metadata = {
   >
     <div slot="actions" class="flex max-w-sm gap-4">
       <Button variant="link" href={appStoreDownloadLink}>
-        <Image src={appStoreImg} alt="App Store Image" width={200} />
+        <Image src={appStoreImg} alt="App Store Image" width={200} format="webp" />
       </Button>
 
       <Button variant="link" href={googlePlayDownloadLink}>
-        <Image src={googlePlayImg} alt="Google Play Image" width={200} />
+        <Image src={googlePlayImg} alt="Google Play Image" width={200} format="webp" />
       </Button>
     </div>
   </CallToAction>
